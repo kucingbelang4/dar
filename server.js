@@ -1,4 +1,4 @@
-console.log('server ready');
+console.log('server init');
 
 var Module = require('./dar_module/autoload').load(); 
 
@@ -27,7 +27,8 @@ module.exports.config = function config(port, ip){
 	this.port = port;
 		
 	this.ip = ip;
-	 
+	
 };
 
 
+console.log('server ready');

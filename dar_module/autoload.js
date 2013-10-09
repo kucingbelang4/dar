@@ -1,9 +1,10 @@
-console.log('autoload ready');
+console.log('autoload Init');
 
 var module = {
 					'http': '', 
 					'fs': '', 
 					'sys': '',
+					'path': '',
 				};
 				
 var load_module = {}; 
@@ -30,10 +31,4 @@ function reload(){
 
 }
 
-/*exports.config = function config(args){
-
-	this.module = args;
-	
-	reload();
-
-}*/
+console.log('autoload ready');
