@@ -27,7 +27,7 @@ module.exports.config = function config(port, ip){
 	this.port = port;
 		
 	this.ip = ip;
-	
+	 
 };
 
 
