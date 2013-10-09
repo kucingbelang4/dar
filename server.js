@@ -6,30 +6,28 @@ var ip = '192.168.244.199', port = '80';
 
 //var reponseMain = require('./responseMain');
 
-module.exports = {
-
-	start : function start(){
+module.exports.start = function start(){
 	
-		Module.http.createServer(function(req, res){
+	Module.http.createServer(function(req, res){
 		
-			Module.sys.puts("dar wake");
+		Module.sys.puts("dar wake");
 			
-			res.writeHeader(200, {"Content-Type": "text/plain"});
-			res.write("Hello World!");
-			res.end();
+		res.writeHeader(200, {"Content-Type": "text/plain"});
+		res.write("Hello World!");
+		res.end();
 		
-		}).listen(this.port, this.ip);
+	}).listen(port, ip);
 		
-		Module.sys.puts("wake dar at http://"+this.ip+":"+this.port);
+	Module.sys.puts("wake dar at http://"+ip+":"+port);
 	
-	},
+};
 	
-	config : function config(port, ip){
+module.exports.config = function config(port, ip){
 	
-		this.port = port,
+	this.port = port;
 		
-		this.ip = ip
+	this.ip = ip;
 	
-	},
+};
 
-}
+
