@@ -1,1 +1,0 @@
-var reponseHeader = require('./responseHeader'), responseBody = require('./responseBody'), responseFooter = require('./responseFooter');

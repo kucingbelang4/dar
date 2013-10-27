@@ -1,34 +1,38 @@
 console.log('server init');
 
-var Module = require('./dar_module/autoload').load(); 
+var 	Module = require('./dar_module/autoload').load('./mod');
+	Processor = require('./dar_module/processor');
+	
+var 	ip = '192.168.244.199', 
+	port = '80';
 
-var ip = '192.168.244.199', port = '80';
+	function fail(res){
 
-//var reponseMain = require('./responseMain');
+		res.writeHead(400, {'Content-Type': 'text/plain'});
+		res.end('404 not found');
 
+	}
+	
 module.exports.start = function start(){
 	
 	Module.http.createServer(function(req, res){
 		
-		Module.sys.puts("dar wake");
-			
-		res.writeHeader(200, {"Content-Type": "text/plain"});
-		res.write("Hello World!");
-		res.end();
+		Module.sys.puts('request http://'+req.headers.host+req.url);
 		
+		if(req.url == '/favicon.ico'){
+		
+			fail(res);
+		
+		}else{
+		
+			Processor.spin(req, res, Module);
+		
+		}
+			
 	}).listen(port, ip);
 		
 	Module.sys.puts("wake dar at http://"+ip+":"+port);
 	
 };
-	
-module.exports.config = function config(port, ip){
-	
-	this.port = port;
-		
-	this.ip = ip;
-	
-};
-
 
 console.log('server ready');

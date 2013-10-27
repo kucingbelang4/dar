@@ -1,34 +1,29 @@
 console.log('autoload Init');
 
-var module = {
-					'http': '', 
-					'fs': '', 
-					'sys': '',
-					'path': '',
-				};
-				
 var load_module = {}; 
 
-exports.load = function load(){
+function load(args){
 	
-	reload();
+	var mod = require(args).variable();
 	
-	return this.load_module;
+	reload(mod);
+	
+	return load_module;
 
 }
 
-exports.load_module = load_module;
-
-function reload(){
+function reload(mod){
 	
 	console.log('reload');
 	
-	for( var obj in module ){
+	for( var obj in mod ){
 
 		load_module[obj] = require(obj);
 		
 	}
 
 }
+
+module.exports.load = load;
 
 console.log('autoload ready');
