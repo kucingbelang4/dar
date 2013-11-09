@@ -3,6 +3,7 @@ var module = {
 					'fs': '', 
 					'sys': '',
 					'path': '',
+					'child_process': 'exec',
 };
 
 exports.variable = function variable(){

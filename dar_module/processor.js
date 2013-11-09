@@ -4,7 +4,6 @@ var	count = 0,
 	pathor = {},
 	FILE = '';
 
-
 function spin(req, res, Module){
 	
 	console.log('~ spin ~');
@@ -14,21 +13,21 @@ function spin(req, res, Module){
 		if ( req.headers.host == site ){
 		
 			if (req.url == '/'){
-			
+				
 				FILE = PATH+'/'+sources[site]+'/index.html';
-				
+						
 				MIME = 'text/html';
-				
+						
 				build(req, res, Module, FILE, MIME);
 
 			}else{
-			
+					
 				FILE = PATH+'/'+sources[site]+'/'+req.url;
-				
+						
 				MIME = 'text/'+ validator(req.url);
-				
+						
 				build(req, res, Module, FILE, MIME);
-			
+					
 			}
 		
 		}
@@ -36,20 +35,13 @@ function spin(req, res, Module){
 	}
 	
 	
-	
 	function validator(url){
-	
-		var room = url.split('/');
 		
-		var last = room[room.length - 1];
+		var last = url.split('/')[url.split('/').length - 1];
 		
-		console.log('last : '+last);
+		//console.log('last : '+last);
 		
-		var extBase = last.split('.');
-		
-		var ext = extBase[extBase.length - 1];
-		
-		return ext;
+		return last.split('.')[last.split('.').length - 1];
 	
 	}
 	

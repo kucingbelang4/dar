@@ -6,7 +6,7 @@ var 	sites = {
 
 module.exports = {
 
-	sites	: sites, 
+	sites		: sites, 
 	path		: path,
 	
 };

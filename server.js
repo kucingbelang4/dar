@@ -1,17 +1,10 @@
 console.log('server init');
 
-var 	Module = require('./dar_module/autoload').load('./mod');
-	Processor = require('./dar_module/processor');
+var 	Module = require('./dar_module/autoload').load('./mod'),
+		Processor = require('./dar_module/processor');
 	
-var 	ip = '192.168.244.199', 
-	port = '80';
-
-	function fail(res){
-
-		res.writeHead(400, {'Content-Type': 'text/plain'});
-		res.end('404 not found');
-
-	}
+var 	ip = 'localhost', 
+		port = process.argv[2] || 1337;
 	
 module.exports.start = function start(){
 	
@@ -21,7 +14,8 @@ module.exports.start = function start(){
 		
 		if(req.url == '/favicon.ico'){
 		
-			fail(res);
+			res.writeHead(400, {'Content-Type': 'text/plain'});
+			res.end('404 not found');
 		
 		}else{
 		
