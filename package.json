@@ -1,15 +1,14 @@
 {
 
-	"name"		:	"DAR",
-	"version"	:	"0.0.2",
-	"dependencies"	:	{
+	"name":	"DAR",
+	"version":	"0.0.2",
+	"dependencies":	{
 
-		"cassandra-client"	:	"0.14.8",
-		"net"			:	"1.0.0",
-		"nodemon"		:	"0.7.10",
+		"cassandra-client":	"0.14.8",
+		"net":	"1.0.0",
+		"nodemon":	"0.7.10",
 		
-
 	},
-	"repository"	:	"https://github.com/kucingbelang4/dar",
+	"repository" :	"https://github.com/kucingbelang4/dar",
 
 }
